@@ -11,7 +11,29 @@ public class InteractRunner {
                                 String first = reader.next();
                                 System.out.println("Enter second arg: ");
                                 String second = reader.next();
-                                calc.add(Integer.valueOf(first), Integer.valueOf(second));
+                                System.out.println("Select action: sumary(+:1), minus(-:2), multiplay(*:3), divide(/:4)");
+                                String act = reader.next();
+                                switch (act){
+                                        case "+":
+                                        case "1":
+                                                calc.add(Integer.valueOf(first), Integer.valueOf(second));
+                                                break;
+                                        case "-":
+                                        case "2":
+                                                calc.minus(Integer.valueOf(first), Integer.valueOf(second));
+                                                break;
+                                        case "*":
+                                        case "3":
+                                                calc.multiplay(Integer.valueOf(first), Integer.valueOf(second));
+                                                break;
+                                        case "/":
+                                        case "4":
+                                                calc.divide(Integer.valueOf(first), Integer.valueOf(second));
+                                                break;
+                                                default:
+                                                        System.out.println("Do not action selected");
+                                }
+
                                 System.out.println("result: " + calc.getResult());
                                 calc.cleanResults();
                                 System.out.println("Exit: yes(y)/no(n)");
