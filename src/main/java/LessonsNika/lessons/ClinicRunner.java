@@ -10,9 +10,7 @@ public class ClinicRunner {
 
         public static void main(String[] args) throws UserException{
                 final Clinic clinic = new Clinic(10);
-                counter = 0;
-                clinic.addClient(counter, new Client("nick", new Dog(new Animal("Sparki", 15))));
-                counter++;
+                clinic.addClient(new Client("nick", new Dog(new Animal("Sparki", 15))));
 
                 in = new Scanner(System.in);
                 //переменные для пунктов меню
@@ -23,7 +21,6 @@ public class ClinicRunner {
                         numberMenu = in.nextInt();
                         switch (numberMenu){
                                 case 1:
-                                        System.out.println("-----Clients and their pets-----");
                                         clinic.Show();
                                         break;
                                 case 2:
@@ -36,6 +33,7 @@ public class ClinicRunner {
                                         PunktFindClientByPetName(clinic);
                                         break;
                                 case 5:
+                                        PunktDivideClient(clinic);
                                         break;
                                 case 6:
                                         PunktChangeClient(clinic);
@@ -77,7 +75,7 @@ public class ClinicRunner {
                         cl = new Client(nameClient, new Cat(new Animal(namePet, age)));
                 else
                         cl = new Client(nameClient, new Dog(new Animal(namePet, age)));
-                counter++;
+                //counter++;
                 return cl;
         }
 
@@ -101,7 +99,8 @@ public class ClinicRunner {
                                 newPet = in.next();
                                 System.out.println("Enter age of the pet");
                                 newAgePet = in.nextInt();
-                                clinic.addClient(counter, AddClient(newClient, newPet, newAgePet, numberPet));
+                                //clinic.addClient(counter, AddClient(newClient, newPet, newAgePet, numberPet));
+                                clinic.addClient(AddClient(newClient, newPet, newAgePet, numberPet));
                                 System.out.println("-----Exit to previous menu? yes(y), no(n)-----");
                                 exit = in.next();
 
@@ -121,6 +120,8 @@ public class ClinicRunner {
                 Client cl = clinic.findClientsByName(findName);
                 if(!cl.getId().equalsIgnoreCase(""))
                         ShowClient(cl);
+                else
+                        System.out.println("Client is not found");
         }
 
         /**
@@ -133,6 +134,8 @@ public class ClinicRunner {
                 Client cl = clinic.findClientsByPetName(findName);
                 if(!cl.getId().equalsIgnoreCase(""))
                         ShowClient(cl);
+                else
+                        System.out.println("Client is not found");
         }
 
         /**
@@ -145,39 +148,78 @@ public class ClinicRunner {
         }
 
         /**
+         * удаляет клиент из списка клиники
+         */
+        public static void PunktDivideClient(Clinic clinic){
+                boolean find = false;
+                while (!find) {
+                        System.out.println("Enter name of client");
+                        String findName = in.next();
+                        Client cl = clinic.findClientsByName(findName);
+                        if (!cl.getId().equalsIgnoreCase("")) {
+                                find = true;
+                                ShowClient(cl);
+                        }
+                        else {
+                                System.out.println("Client is not found");
+                                find = false;
+                                continue;
+                        }
+                        System.out.println("Divide the client? yes(y)/no(n)");
+                        String answer = in.next();
+                        if (answer.equalsIgnoreCase("y")) {
+                                clinic.RemoveClient(cl);
+                                clinic.Show();
+                        }
+                }
+        }
+
+        /**
          * изменяет информацию о клиенте
          * @param clinic
          */
         public static void PunktChangeClient(final Clinic clinic){
+                boolean find = false;
                 System.out.println("-----Change client information-----");
-                System.out.println("Enter name of client");
-                String findName = in.next();
-                Client cl = clinic.findClientsByName(findName);
-                if(!cl.getId().equalsIgnoreCase(""))
-                        ShowClient(cl);
-                int number = 0;
-                while (number!= 44) {
-                        System.out.println("Change: name client(11), name pet(22), age pet(33), exit to previous menu(44)");
-                        number = in.nextInt();
-                        switch (number) {
-                                case 11:
-                                        System.out.println("Enter new name of client");
-                                        String name = in.next();
-                                        cl.setId(name);
-                                        ShowClient(cl);
-                                        break;
-                                case 22:
-                                        System.out.println("Enter new name of pet");
-                                        String namePet = in.next();
-                                        cl.setPetName(namePet);
-                                        ShowClient(cl);
-                                        break;
-                                case 33:
-                                        System.out.println("Enter age of pet");
-                                        int age = in.nextInt();
-                                        cl.setPetAge(age);
-                                        ShowClient(cl);
-                                        break;
+                while (!find) {
+                        System.out.println("Enter name of client");
+                        String findName = in.next();
+                        Client cl = clinic.findClientsByName(findName);
+
+                        if (!cl.getId().equalsIgnoreCase("")) {
+                                ShowClient(cl);
+                                find = true;
+                        }
+                        else {
+                                System.out.println("Client is not found");
+                                find = false;
+                                continue;
+                        }
+
+                        int number = 0;
+                        while (number != 44) {
+                                System.out.println("Change: name client(11), name pet(22), age pet(33), exit to previous menu(44)");
+                                number = in.nextInt();
+                                switch (number) {
+                                        case 11:
+                                                System.out.println("Enter new name of client");
+                                                String name = in.next();
+                                                cl.setId(name);
+                                                ShowClient(cl);
+                                                break;
+                                        case 22:
+                                                System.out.println("Enter new name of pet");
+                                                String namePet = in.next();
+                                                cl.setPetName(namePet);
+                                                ShowClient(cl);
+                                                break;
+                                        case 33:
+                                                System.out.println("Enter age of pet");
+                                                int age = in.nextInt();
+                                                cl.setPetAge(age);
+                                                ShowClient(cl);
+                                                break;
+                                }
                         }
                 }
         }
