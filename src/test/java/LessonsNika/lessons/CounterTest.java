@@ -1,5 +1,6 @@
 package LessonsNika.lessons;
 
+import LessonsNika.lessons.Examples.Counter;
 import org.junit.Test;
 import java.util.Arrays;
 import java.util.*;

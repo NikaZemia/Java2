@@ -1,5 +1,7 @@
 package LessonsNika.lessons;
 
+import LessonsNika.lessons.AnimalClinic.User;
+
 import java.util.*;
 
 public class UserRunner {

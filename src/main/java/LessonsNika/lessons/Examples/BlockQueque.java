@@ -1,4 +1,4 @@
-package LessonsNika.lessons;
+package LessonsNika.lessons.Examples;
 
 import java.util.*;
 

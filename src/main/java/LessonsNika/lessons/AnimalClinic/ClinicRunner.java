@@ -1,4 +1,6 @@
-package LessonsNika.lessons;
+package LessonsNika.lessons.AnimalClinic;
+
+import LessonsNika.lessons.UserException;
 
 import java.util.Scanner;
 
@@ -8,7 +10,7 @@ public class ClinicRunner {
         private static String exit;
         private static Scanner in;
 
-        public static void main(String[] args) throws UserException{
+        public static void main(String[] args) throws UserException {
                 final Clinic clinic = new Clinic(10);
                 clinic.addClient(new Client("nick", new Dog(new Animal("Sparki", 15))));
 

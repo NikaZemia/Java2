@@ -1,4 +1,4 @@
-package LessonsNika.lessons;
+package LessonsNika.lessons.AnimalClinic;
 
 public class Animal implements Pet{
         private String name;

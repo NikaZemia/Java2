@@ -1,5 +1,6 @@
 package LessonsNika.lessons;
 
+import LessonsNika.lessons.Examples.Calculator;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

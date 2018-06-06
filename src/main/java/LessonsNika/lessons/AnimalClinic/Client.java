@@ -1,4 +1,4 @@
-package LessonsNika.lessons;
+package LessonsNika.lessons.AnimalClinic;
 
 public class Client {
         private String id;

@@ -1,5 +1,7 @@
 package LessonsNika.lessons;
 
+import LessonsNika.lessons.AnimalClinic.User;
+import LessonsNika.lessons.Examples.BlockQueque;
 import org.junit.Test;
 
 import java.util.Arrays;

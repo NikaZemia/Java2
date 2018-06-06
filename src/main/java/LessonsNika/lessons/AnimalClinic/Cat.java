@@ -1,19 +1,21 @@
-package LessonsNika.lessons;
+package LessonsNika.lessons.AnimalClinic;
 
-public class Dog implements Pet{
+public class Cat implements Pet {
+
         private final Pet pet;
 
-        public Dog(final Pet pet){
-               this.pet = pet;
+        public Cat(final Pet pet){
+                //super(name);
+                this.pet = pet;
         }
 
         public void MakeSound() {
                 System.out.println(
-                        String.format("%s say: %s", this.getName(), "Gav")
+                        String.format("%s say: %s", this.getName(), "May")
                 );
         }
 
-        public String getName() {
+       public String getName() {
                 return this.pet.getName();
         }
 
