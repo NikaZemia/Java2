@@ -10,7 +10,7 @@ public class ClinicRunner {
         private static String exit;
         private static Scanner in;
 
-        public static void main(String[] args) throws UserException {
+        public static void main(String[] args) {
                 final Clinic clinic = new Clinic(10);
                 clinic.addClient(new Client("nick", new Dog(new Animal("Sparki", 15))));
 
@@ -83,7 +83,7 @@ public class ClinicRunner {
 
         /**
          * запускает пункт меню Добавить клиента и запрашивает данные о новом клиенте
-         * @param clinic
+         * @param clinic клиника
          */
         public static void PunktAddClient(final Clinic clinic){
                 //переменные для заполнения данных о клиенте
@@ -114,7 +114,7 @@ public class ClinicRunner {
 
         /**
          * поиск клента по имени клиента
-         * @param clinic
+         * @param clinic клиника
          */
         public static void PunktFindClientByName(final Clinic clinic){
                 System.out.println("Enter name of client");
@@ -128,7 +128,7 @@ public class ClinicRunner {
 
         /**
          * поиск клента по имени питомца
-         * @param clinic
+         * @param clinic клиника
          */
         public static void PunktFindClientByPetName(final Clinic clinic){
                 System.out.println("Enter name of pet");
@@ -142,7 +142,7 @@ public class ClinicRunner {
 
         /**
          * показывает информакцию о найденном клиенте
-         * @param cl
+         * @param cl клиент
          */
         public static void ShowClient(final Client cl){
                 System.out.println("-----Find client-----");
@@ -178,7 +178,7 @@ public class ClinicRunner {
 
         /**
          * изменяет информацию о клиенте
-         * @param clinic
+         * @param clinic клиника
          */
         public static void PunktChangeClient(final Clinic clinic){
                 boolean find = false;

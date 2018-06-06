@@ -30,7 +30,7 @@ public class Client {
 
                        public void setAge(int age) {}
                };
-       };
+       }
 
         public Client(String id, Pet pet){
                 this.id = id;
