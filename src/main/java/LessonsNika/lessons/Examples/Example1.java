@@ -64,8 +64,6 @@ public class Example1 {
                         "Лука: Господи боже!"};
                 String all = printTextPerRole(roles, textLines);
                 System.out.println(all);
-                String allSB = printTextPerRoleSB(roles, textLines);
-                System.out.println(allSB);
 
                 Test x = new Test(5);
                 x.Show();
@@ -80,45 +78,29 @@ public class Example1 {
         private static String printTextPerRole(String[] roles, String[] textLines) {
                 String all = "";
                 for (int i = 0; i<=roles.length-1; i++){
-                        if(all.indexOf(roles[i])== -1){
-                                all+=roles[i] + ":\n";
+                        if(!all.contains(roles[i])){
+                                all = all.concat(roles[i] + ":\n");
                         }
                         for (int j = 0; j<=textLines.length-1; j++){
                                 //ищем пробел в ролях
-                                String role = roles[i];
-                                if(roles[i].indexOf(" ")!= -1){
+                                String role;
+                                if(roles[i].contains(" ")){
                                         role = roles[i].substring(0, roles[i].indexOf(" "));
                                 }
                                 else {
                                         role = roles[i];
                                 }
-                                System.out.println(role);
+                               // System.out.println(role);
 
                                 if(textLines[j].startsWith(role)){
 
                                         String text = textLines[j].replace(roles[i] + ": ", "");
                                         String text2 = text.replace(role + ": ", "");
-                                        all += j+1 +") " + text2 + "\n";
+                                        all = all.concat(j+1 +") " + text2 + "\n");
                                 }
                         }
-                        all+="\n";
+                        all = all.concat("\n");
                 }
-                return all;
-        }
-
-        private static String printTextPerRoleSB(String[] roles, String[] textLines){
-                StringBuilder SB = new StringBuilder("");
-                String all = "";
-                for (int i = 0; i<=roles.length-1; i++){
-                        if(SB.indexOf(roles[i])== -1){
-                                SB.append(roles[i] + ":\n");
-                        }
-                        for (int j = 0; j<=textLines.length-1; j++){
-
-                        }
-
-                }
-                all = SB.toString();
                 return all;
         }
 
@@ -196,7 +178,7 @@ public class Example1 {
 
         }
 
-        public static void moveRobot(Robot robot, int toX, int toY) {
+        private static void moveRobot(Robot robot, int toX, int toY) {
                 //идем по оси Х
                 if(robot.getX() < toX) {
                         switch (robot.getDirection()) {

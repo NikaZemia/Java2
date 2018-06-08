@@ -26,7 +26,7 @@ public class NegativeTextAnalyzer extends KeywordAnalyzer{
                 boolean found = false;
                 for (String st:keyWords
                         ) {
-                        if(text.indexOf(st)!=-1){
+                        if(text.contains(st)){
                                 found = true;
                                 break;
                         }

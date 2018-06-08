@@ -62,7 +62,7 @@ public class RunTextAnalyzer {
                 }
         }
 
-        public static Label checkLabels(TextAnalyzer[] analyzers, String text) {
+        private static Label checkLabels(TextAnalyzer[] analyzers, String text) {
                 Label lb = Label.OK;
                 for (TextAnalyzer analazer:analyzers
                      ) {
