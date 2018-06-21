@@ -1,9 +1,114 @@
 package LessonsNika.lessons.Examples;
 
+import sun.nio.cs.StandardCharsets;
+
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.*;
+import java.util.logging.*;
+import java.util.logging.Formatter;
+import java.io.Serializable.*;
 
 public class Example1 {
         public static void main(String[] args) {
+                /*System.out.println("-----Test1-----");
+                TestOne();
+
+                System.out.println("-----Test2-----");
+                TestTwo();
+
+                System.out.println("-----Test3-----");
+                TestThree();
+
+                System.out.println("--------------------");
+                String[] roles = {"Городничий", "Аммос Федорович", "Артемий Филиппович", "Лука Лукич", "Nbx"};
+                String[] textLines = {"Городничий: Я пригласил вас, господа, с тем, чтобы сообщить вам пренеприятное известие: к нам едет ревизор.",
+                        "Аммос Федорович: Как ревизор?",
+                        "Артемий Филиппович: Как ревизор?",
+                        "Городничий: Ревизор из Петербурга, инкогнито. И еще с секретным предписаньем.",
+                        "Аммос Федорович: Вот те на!",
+                        "Артемий Филиппович: Вот не было заботы, так подай!",
+                        "Лука Лукич: Господи боже! еще и с секретным предписаньем!",
+                        "Лука: Господи боже!"};
+                String all = printTextPerRole(roles, textLines);
+                System.out.println(all);
+
+                System.out.println("-----Test4-----");
+                TestFour();
+
+                System.out.println("-----Robot-----");
+                Robot robot = new Robot(5,2, Robot.Direction.UP);
+                moveRobot(robot, 5, 4);
+
+                System.out.println("-----SQR-----");
+                double x1 = 9.0;
+                System.out.println(sqrt(x1));
+
+                System.out.println("-----LOGGER-----");
+                LoggerTest();*/
+
+ /*               System.out.println("-----File-----");
+                try {
+                        File file = new File("D:\\JavaProjects\\Java2");
+                        System.out.println(file.getCanonicalPath());
+                }
+                catch (IOException e){
+                        e.printStackTrace();
+                }
+
+                System.out.println("-----TestFive-----");
+                try {
+                        InputStream ar = new ByteArrayInputStream(new byte[]{0x33, 0x45, 0x01});
+                        System.out.println(checkSumOfStream(ar));
+                }
+                catch (IOException ex){
+                        ex.printStackTrace();
+                }
+
+                System.out.println("----------");
+                *//*dfgdfgdfg**//*
+                *//**dfgdfgdgdgd*//*
+                System.out.println(4|3);
+                System.out.println(Charset.defaultCharset());
+                System.out.println("----------------");
+                Reader reader = new StringReader("Ы");
+                Scanner scanner = new Scanner(reader);
+                System.out.print(scanner);
+
+                System.out.println("-----");
+                int a2 = 012;
+                int a3 = 20;
+                System.out.println(a2*a3);*/
+
+/*                System.out.println("-----Serializable Animal-----");
+                try {
+                        Animal[] animalM1 = {new Animal("Cat"), new Animal("Dog"), new Animal("Elephant"),
+                                new Animal("Cock"), new Animal("Bull"), new Animal("Ant"),
+                                new Animal("Tentecles"), new Animal("Worm")};
+                        ByteArrayOutputStream bai = new ByteArrayOutputStream();
+                        ObjectOutputStream oos = new ObjectOutputStream(bai);
+                        oos.writeInt(animalM1.length);
+                        for (int i = 0; i < animalM1.length; i++) {
+                                oos.writeObject(animalM1[i]);
+                        }
+                        oos.flush();
+                        oos.close();
+                        Animal[] animalM2 = deserializeAnimalArray(bai.toByteArray());
+                        for (int i = 0; i < animalM2.length; i++) {
+                                System.out.printf("%d. %s \n", i+1, animalM2[i].getName());
+                        }
+                }
+                catch (IOException ex){
+                        ex.printStackTrace();
+                }*/
+
+                System.out.println(5^6&3);
+                Boolean ab = new Boolean("dfg");
+                System.out.println(ab);
+
+        }
+
+        public static void TestOne(){
                 int[] a = {1,2,3};
                 System.out.println(Arrays.toString(a));
                 int[][] b = {{1,2,3},{4,5}};
@@ -19,8 +124,9 @@ public class Example1 {
                 System.out.println("A" + 12);
                 System.out.println('A' + '1' + "2");
                 System.out.println('A' + "12");
+        }
 
-                System.out.println("-----------------");
+        public static void TestTwo(){
                 String text = "Madam, I'm Adam!";
                 String str = text.replaceAll("[^A-Za-z0-9]+", "");
                 System.out.println(str);
@@ -34,8 +140,9 @@ public class Example1 {
                 }
                 else
                         System.out.println(false);
+        }
 
-                System.out.println("-----------------");
+        public static void TestThree(){
                 int[] a1 = {0, 5, 2};
                 int[] a2 = {1, 3};
                 Arrays.sort(a1);
@@ -52,27 +159,13 @@ public class Example1 {
                 }
                 Arrays.sort(c1);
                 System.out.println(Arrays.toString(c1));
-                System.out.println("--------------------");
-                String[] roles = {"Городничий", "Аммос Федорович", "Артемий Филиппович", "Лука Лукич", "Nbx"};
-                String[] textLines = {"Городничий: Я пригласил вас, господа, с тем, чтобы сообщить вам пренеприятное известие: к нам едет ревизор.",
-                        "Аммос Федорович: Как ревизор?",
-                        "Артемий Филиппович: Как ревизор?",
-                        "Городничий: Ревизор из Петербурга, инкогнито. И еще с секретным предписаньем.",
-                        "Аммос Федорович: Вот те на!",
-                        "Артемий Филиппович: Вот не было заботы, так подай!",
-                        "Лука Лукич: Господи боже! еще и с секретным предписаньем!",
-                        "Лука: Господи боже!"};
-                String all = printTextPerRole(roles, textLines);
-                System.out.println(all);
+        }
 
+        public static void TestFour(){
                 Test x = new Test(5);
                 x.Show();
                 x = new Test(6);
                 x.Show();
-
-                System.out.println("-----Robot-----");
-                Robot robot = new Robot(5,2, Robot.Direction.UP);
-                moveRobot(robot, 5, 4);
         }
 
         private static String printTextPerRole(String[] roles, String[] textLines) {
@@ -309,4 +402,84 @@ public class Example1 {
                         }
                 }
         }
+
+        public static double sqrt(double x) {
+                double answer = Double.NaN;
+                if(x < 0){
+                        answer = Double.NaN;
+                        throw new IllegalArgumentException("" +
+                                "Expected non-negative number, got " + x);
+                }
+                answer = Math.sqrt(x);
+                return answer;
+        }
+
+        public static void LoggerTest(){
+                Logger logger = Logger.getLogger(Robot.class.getName());
+                Handler handler;
+                try {
+                        handler = new FileHandler("D:\\JavaProjects\\Java2\\src\\main\\java\\LessonsNika\\lessons\\log.xml");
+                } catch (Exception e) {
+                        handler = new ConsoleHandler();
+                }
+                Formatter formatter = new XMLFormatter();
+
+                handler.setFormatter(formatter);
+                handler.setLevel(Level.WARNING);
+                logger.addHandler(handler);
+
+                logger.log(Level.INFO, "test info");
+                logger.log(Level.WARNING, "test warning"); // Выводится в файл
+
+        }
+
+        public static int checkSumOfStream(InputStream inputStream) throws IOException{
+                int sum = 0;
+                //try {
+                        int k;
+                        while ((k=inputStream.read())!=-1) {
+                                sum = Integer.rotateLeft(sum, 1)^k;
+                                //k = inputStream.read();
+                        }
+                /*}
+                catch (IOException ex){
+                        ex.printStackTrace();
+                }
+                finally {
+                        inputStream.close();
+                }*/
+                return sum;
+        }
+
+        public static Animal[] deserializeAnimalArray(byte[] data) throws IOException{
+                Animal[] an = new Animal[data.length-1];
+                ByteArrayInputStream bais = new ByteArrayInputStream(data);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                int i = 0;
+                int k;
+                while ((k = ois.read())!=-1){
+                       int any = k;
+                        System.out.println(String.format("1. %s, 2. %s", any, (char)any));
+                       i++;
+                }
+                return an;
+        }
+}
+
+class Animal implements Serializable {
+        private final String name;
+
+        public Animal(String name) {
+                this.name = name;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+                if (obj instanceof Animal) {
+                        return Objects.equals(name, ((Animal) obj).name);
+                }
+                return false;
+        }
+
+        public String getName(){return name;}
 }
